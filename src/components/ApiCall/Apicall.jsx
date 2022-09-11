@@ -1,25 +1,35 @@
 import { useEffect, useState } from "react";
+import Card from "../Card/Card";
 
-const ApiCall = () => {
+import React from "react";
+
+const Apicall = () => {
 	const [characters, setCharacters] = useState([]);
-	// let { info, results } = characters;
+	const [info, setInfo] = useState({});
 
 	useEffect(() => {
 		fetch("https://rickandmortyapi.com/api/character")
 			.then((res) => res.json())
-			.then((res) => setCharacters(res.results));
+			.then((res) => {
+				setCharacters(res.results);
+				setInfo(res.info);
+			});
 	}, []);
 
 	return (
-		<div>
+		<div className="apicall">
+			<h1>Personajes</h1>
+
 			{characters.map((character) => (
-				<div>
-					<p>{character.name}</p>
-					<img src={character.image} alt="Character"></img>
-				</div>
+				<Card key={character.id} character={character} />
 			))}
+
+			<div className="btn-group">
+				{info.prev && <button>Anterior</button>}
+				{info.next && <button>Siguiente</button>}
+			</div>
 		</div>
 	);
 };
 
-export default ApiCall;
+export default Apicall;
