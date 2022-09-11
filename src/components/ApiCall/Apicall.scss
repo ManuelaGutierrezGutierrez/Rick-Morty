@@ -1,0 +1,18 @@
+.apicall_card {
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+}
+
+@media (max-width: 320px) {
+	.apicall_card {
+		display: grid;
+		grid-template-columns: auto;
+	}
+}
+
+@media (max-width: 375px) {
+	.apicall_card {
+		display: grid;
+		grid-template-columns: auto;
+	}
+}
