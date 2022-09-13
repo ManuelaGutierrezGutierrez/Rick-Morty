@@ -16,6 +16,21 @@
 
     &__btn-group{
         margin-top: 10px;
+
+        
+            button {
+                border-radius: 10px;
+                display: inline-block;
+                border: none;
+                text-align: center;
+                padding: 10px;
+                margin: 10px;
+                width: 150px;
+                font-size: 1.25rem;
+                font-weight: 700;
+                background: #6bc373;
+              }
+        
     }
 }
 
