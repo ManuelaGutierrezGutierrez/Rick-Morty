@@ -20,7 +20,7 @@ const Apicall = () => {
 
 	useEffect(() => {
 		getCharacters();
-	}, [search]);
+	}, []);
 
 	const handleChange = (e) => {
 		setSearch(e.target.value);
@@ -42,7 +42,7 @@ const Apicall = () => {
 
 	return (
 		<div className="apicall">
-		<div><input type="text" value={search} onChange={handleChange} placeholder="Search"></input> <button >Busca</button></div>
+		<div className="apicall__search-container"><input type="text" value={search} onChange={handleChange} placeholder="Search" className="apicall__search-bar"></input></div>
 		
 			<div className="apicall__container">
 				{characters.map((character) => (
