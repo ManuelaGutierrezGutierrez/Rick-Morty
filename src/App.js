@@ -1,12 +1,10 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap";
 import ApiCall from "./components/ApiCall/Apicall";
+import Header from "./components/Header/Header";
 
 const App = () => {
 	return (
 		<div className="app">
-			<h1 className="text-center">Rick - Morty</h1>
-
+			<Header></Header>
 			<ApiCall></ApiCall>
 		</div>
 	);

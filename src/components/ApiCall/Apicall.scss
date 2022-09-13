@@ -1,18 +1,33 @@
-.apicall_card {
-	display: grid;
-	grid-template-columns: auto auto auto auto;
+.apicall {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__container {
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        // place-content: center;
+        gap: 1rem;
+        // justify-content: center;
+        
+    }
+
+    &__btn-group{
+        margin-top: 10px;
+    }
 }
 
-@media (max-width: 320px) {
-	.apicall_card {
-		display: grid;
-		grid-template-columns: auto;
-	}
-}
 
-@media (max-width: 375px) {
-	.apicall_card {
-		display: grid;
-		grid-template-columns: auto;
-	}
+
+
+
+@media (max-width: 768px) {
+    .apicall__container{
+        width: 90%;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    
 }

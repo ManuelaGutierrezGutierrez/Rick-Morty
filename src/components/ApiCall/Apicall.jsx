@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import "./Apicall.scss";
 import React from "react";
+import "./Apicall.scss";
 
 const Apicall = () => {
 	const [characters, setCharacters] = useState([]);
@@ -21,13 +22,13 @@ const Apicall = () => {
 	}, []);
 
 	return (
-		<div className="apicall__container ">
-			<div className="apicall_card position-relative text-dark">
+		<div className="apicall">
+			<div className="apicall__container">
 				{characters.map((character) => (
 					<Card key={character.id} character={character} />
 				))}
 			</div>
-			<div className="btn-group">
+			<div className="apicall__btn-group">
 				{info.prev && (
 					<button onClick={() => getCharacters(info.prev)}>Previous</button>
 				)}
