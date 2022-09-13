@@ -7,6 +7,7 @@ import "./Apicall.scss";
 const Apicall = () => {
 	const [characters, setCharacters] = useState([]);
 	const [info, setInfo] = useState({});
+	const [search, setSearch] = useState("")
 
 	const getCharacters = (url = "https://rickandmortyapi.com/api/character") => {
 		fetch(url)
@@ -19,10 +20,30 @@ const Apicall = () => {
 
 	useEffect(() => {
 		getCharacters();
-	}, []);
+	}, [search]);
+
+	const handleChange = (e) => {
+		setSearch(e.target.value);
+		results()
+	}
+
+
+
+	const results = (url = `https://rickandmortyapi.com/api/character/?name=${search}`) => {
+		fetch(url)
+		.then((res) => res.json())
+		.then((res) => {
+			setCharacters(res.results);
+			setInfo(res.info);
+		});
+	}
+
+	
 
 	return (
 		<div className="apicall">
+		<div><input type="text" value={search} onChange={handleChange} placeholder="Search"></input> <button >Busca</button></div>
+		
 			<div className="apicall__container">
 				{characters.map((character) => (
 					<Card key={character.id} character={character} />
@@ -40,4 +61,4 @@ const Apicall = () => {
 	);
 };
 
-export default Apicall;
+export default Apicall
